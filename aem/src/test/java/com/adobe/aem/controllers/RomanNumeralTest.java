@@ -49,4 +49,15 @@ public class RomanNumeralTest {
         assertEquals(200, result.getResponse().getStatus());
     }
 
+    @Test
+    public void integerToRomanTestParallelException() throws Exception {
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/romannumeral?min="+0+"&max="+4000).
+                accept(MediaType.APPLICATION_JSON);
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        String expected = "{integer} must be an integer value for both the min and max parameters. " +
+                "Both min and max must be provided. Min must be less than max. Both must be in the " +
+                "supported range of 1 - 3999";
+        assertEquals(expected, result.getResolvedException().getMessage());
+    }
+
 }

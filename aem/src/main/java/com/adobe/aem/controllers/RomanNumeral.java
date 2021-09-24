@@ -19,8 +19,8 @@ public class RomanNumeral {
     RomanConvertorService romanConvertorService;
 
     @GetMapping(params = {"integer"})
-    public Conversions ToRoman( @RequestParam(name="integer") int integer) throws Exception {
-        if((integer<1)||(integer>255))
+    public Conversions ToRoman( @RequestParam(name="integer") Integer integer) throws Exception {
+        if((integer<1)||(integer>255)||(integer==null))
             throw new Exception("{integer} must be any integer value in the range 1-255");
         return romanConvertorService.toRoman(integer);
     }
@@ -29,8 +29,8 @@ public class RomanNumeral {
     public List<Conversions> convertIntToRomanRange(@RequestParam(required =true ,name="min") Integer min,
                                                     @RequestParam(required =true ,name="max") Integer max)throws Exception {
         if((min<1)||(max>3999)||(min>max))
-            throw new Exception("{integer} must be an integer value for both the min and max parameters. Both\n" +
-                    "min and max must be provided. Min must be less than max. Both must be in the\n" +
+            throw new Exception("{integer} must be an integer value for both the min and max parameters. Both " +
+                    "min and max must be provided. Min must be less than max. Both must be in the " +
                     "supported range of 1 - 3999");
 
         return romanConvertorService.toRomanParallel(min,max);
