@@ -18,11 +18,11 @@ public class IRules implements Rules {
     }
 
     @Override
-    public Future<Conversions> convertor(Conversions conversions) {
+    public Future<String> convertor(Conversions conversions) {
         int number = Integer.parseInt(conversions.getInput());
-        conversions.setOutput( thousands[number / 1000] + hundreds[number % 1000 / 100]
+        String result=( thousands[number / 1000] + hundreds[number % 1000 / 100]
                 + tens[number % 100 / 10] + ones[number % 10]);
 
-        return CompletableFuture.completedFuture(conversions);
+        return CompletableFuture.completedFuture(result);
     }
 }

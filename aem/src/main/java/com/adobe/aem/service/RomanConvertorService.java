@@ -34,20 +34,18 @@ public class RomanConvertorService {
     }
 
     private void parallel(Conversions conversions) {
-        List<Future<Conversions>> list = new ArrayList<>();
+        List<Future<String>> list = new ArrayList<>();
         list.add(rules.convertor(conversions));
-        waitForFutureResponse(list);
+        waitForFutureResponse(list,conversions);
     }
 
-    private void waitForFutureResponse(List<Future<Conversions>> futures) {
+    private void waitForFutureResponse(List<Future<String>> futures,Conversions conversions) {
         try{
-            for (Future<Conversions> future: futures){
-                Conversions conversions = future.get();
+            for (Future<String> future: futures){
+                conversions.setOutput(future.get());
                 log.info(conversions.getInput() + " " + conversions.getOutput());
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }

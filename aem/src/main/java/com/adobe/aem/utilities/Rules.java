@@ -7,5 +7,5 @@ import java.util.concurrent.Future;
 public interface Rules {
     String convertor(int number);
 
-    Future<Conversions> convertor(Conversions conversions);
+    Future<String> convertor(Conversions conversions);
 }
