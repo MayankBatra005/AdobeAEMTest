@@ -16,22 +16,27 @@ To build us a web service that takes in a number and outputs a Roman numeral.
 - Build Tool: Maven 
 
 ### Project Structure 
-```
-src
-├── com.adobe.aem  
-         ├── Controllers
-         │   └── RomanNumeral Controller
-         └── Exceptions
-         │   └── Custom Exception Handler 
-         │   └── Exception Response 
-         ├── Models
-         │   └── Conversions
-         ├── Service
-         │   └── Roman Convertor Service 
-         ├── Utilities
-         │   └── Rules Interface
-         │   └── Rules Implementation 
-         └── Adobe AEM Application 
+```src
+├───── Main
+|	├── com.adobe.aem  
+|		├── Controllers
+│		|   └── RomanNumeral Controller
+│         	└── Exceptions
+│         	│   └── Custom Exception Handler 
+│         	│   └── Exception Response 
+│         	├── Models
+│         	│   └── Conversions
+│         	├── Service
+│         	│   └── Roman Convertor Service 
+│         	├── Utilities
+│         	│   └── Rules Interface
+│         	│   └── Rules Implementation 
+│         	└── Adobe AEM Application 
+│
+├───── Test 
+|	├── com.adobe.aem
+|		├── Controllers
+│		|   └── RomanNumeral Controller Test
 ```
 
 ### WebService End points
