@@ -18,6 +18,10 @@ public class RomanNumeral {
     @Autowired
     RomanConvertorService romanConvertorService;
 
+    /*
+     *   Integer conversion End point
+     *   @params accepts integer as request parameter
+     */
     @GetMapping(params = {"integer"})
     public Conversions ToRoman( @RequestParam(name="integer") Integer integer) throws Exception {
         if((integer<1)||(integer>255)||(integer==null))
@@ -25,6 +29,10 @@ public class RomanNumeral {
         return romanConvertorService.toRoman(integer);
     }
 
+    /*
+     *   Range conversion End point
+     *   @params accepts minimum and maximum as request parameters
+     */
     @GetMapping(params = {"min","max"})
     public List<Conversions> convertIntToRomanRange(@RequestParam(required =true ,name="min") Integer min,
                                                     @RequestParam(required =true ,name="max") Integer max)throws Exception {

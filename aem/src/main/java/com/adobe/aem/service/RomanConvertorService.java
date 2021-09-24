@@ -17,6 +17,10 @@ public class RomanConvertorService {
     @Autowired
     Rules rules;
 
+    /*
+     *  Conversion method for single thread requests
+     *  @params : accepts an integer
+     */
     public Conversions toRoman(Integer integer) {
         Conversions conversions = new Conversions();
         conversions.setInput(String.valueOf(integer));
@@ -24,11 +28,18 @@ public class RomanConvertorService {
         return conversions;
     }
 
+    /*
+     *  Conversion method for multiple thread requests
+     *  @params : accepts an integer minimum and integer maximum
+     */
     public List<Conversions> toRomanParallel(Integer min, Integer max) {
         List<Conversions>result=new ArrayList<>();
         int input=min;
+        // intialise the result list
         while(input<=max)
             result.add(new Conversions(String.valueOf(input++),""));
+
+        // Converting the input into roman out put in Async fashion
         result.parallelStream().forEach(this::parallel);
         return result;
     }
