@@ -33,3 +33,74 @@ src
          │   └── Rules Implementation 
          └── Adobe AEM Application 
 ```
+
+### WebService End points
+- Integer End point
+- Range End point 
+
+### Integer End Point 
+```
+Curl 
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/romannumeral?integer={integer}'
+
+Request URL
+http://localhost:8080/romannumeral?integer={integer}
+
+Request Headers
+{
+  "Accept": "*/*"
+}
+
+Model Schema 
+[
+  {
+    "input": "string",
+    "output": "string"
+  }
+]
+
+Sample Response Body for integer 1
+{
+input: "1",
+output: "I"
+}
+
+```
+
+
+
+### Range End point
+```
+Curl 
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/romannumeral?min=1&max=10'
+
+Request URL
+http://localhost:8080/romannumeral?min={integer}&max={integer}
+
+Request Headers
+{
+  "Accept": "*/*"
+}
+
+Model Schema 
+[
+  {
+    "input": "string",
+    "output": "string"
+  }
+]
+
+Sample Response Body for range 1-2
+[
+  {
+    "input": "1",
+    "output": "I"
+  },
+  {
+    "input": "2",
+    "output": "II"
+  }
+]
+
+
+```
