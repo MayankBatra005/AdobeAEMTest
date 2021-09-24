@@ -29,7 +29,6 @@ public class RomanNumeralTest {
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/romannumeral?integer="+0).
                 accept(MediaType.APPLICATION_JSON);
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
-        System.out.println("Response: "+result.getResponse());
         String expected = "{integer} must be any integer value in the range 1-255";
         assertEquals(expected, result.getResolvedException().getMessage());
     }
@@ -39,8 +38,14 @@ public class RomanNumeralTest {
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/romannumeral?integer="+1).
                 accept(MediaType.APPLICATION_JSON);
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
-        System.out.println("Response: "+result.getResponse());
-        String expected = "{integer} must be any integer value in the range 1-255";
+        assertEquals(200, result.getResponse().getStatus());
+    }
+
+    @Test
+    public void integerToRomanTestParallel() throws Exception {
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/romannumeral?min="+1+"&max="+3999).
+                accept(MediaType.APPLICATION_JSON);
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
         assertEquals(200, result.getResponse().getStatus());
     }
 
