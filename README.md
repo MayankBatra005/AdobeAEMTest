@@ -108,23 +108,23 @@ Sample Response Body for range 1-2
 
 ```
 
-### How to Run
+### How to Run the project
 There are two ways to run the webservices:
 - Running via importing the project using pom.xml 
 - Running the project by downloading the jar from releases folder
 
-<b>System Requirements</b>
+### System Requirements
 - JAVA 8 or higher installed in the system
 - IntelliJ installed in the system with support for Maven.
 
-1. Running the project via importing the project using POM.xml.
+### Running the project via importing the project using POM.xml.
 
 - Download the project code from [Git Repo](https://github.com/MayankBatra005/AdobeAEMTest)
 - Import the project in IntelliJ using the pom.xml
 - Let the dependencies being build by maven 
 - Once dependencies are build, run the project using the <b>AdobeAemApplication.java</b> class
 
-2. Running the project by downloading the jar from [releases folder](https://github.com/MayankBatra005/AdobeAEMTest/tree/main/Releases)
+### Running the project by downloading the jar from [releases folder](https://github.com/MayankBatra005/AdobeAEMTest/tree/main/Releases)
 
 - Download the jar 
 - Open the terminal in Mac or Command prompt in Windows
@@ -143,3 +143,11 @@ example
 java -jar -d server.port=8001 aem-0.0.1-SNAPSHOT.jar 
 
 ```
+
+### Running Junit Test Cases 
+Junit test cases can be executed by following steps:
+- Download the project code from [Git Repo](https://github.com/MayankBatra005/AdobeAEMTest)
+- Import the project in IntelliJ using the pom.xml
+- Let the dependencies being build by maven 
+- Once dependencies are build, run the Junit test cases using the <b>RomanNumeralTest</b> class
+- Right click and run as RomanNumeralTest.
