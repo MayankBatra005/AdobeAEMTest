@@ -72,8 +72,6 @@ output: "I"
 
 ```
 
-
-
 ### Range End point
 ```
 Curl 
@@ -107,5 +105,41 @@ Sample Response Body for range 1-2
   }
 ]
 
+
+```
+
+### How to Run
+There are two ways to run the webservices:
+- Running via importing the project using pom.xml 
+- Running the project by downloading the jar from releases folder
+
+<b>System Requirements</b>
+- JAVA 8 or higher installed in the system
+- IntelliJ installed in the system with support for Maven.
+
+1. Running the project via importing the project using POM.xml.
+
+- Download the project code from [Git Repo](https://github.com/MayankBatra005/AdobeAEMTest)
+- Import the project in IntelliJ using the pom.xml
+- Let the dependencies being build by maven 
+- Once dependencies are build, run the project using the <b>AdobeAemApplication.java</b> class
+
+2. Running the project by downloading the jar from [releases folder](https://github.com/MayankBatra005/AdobeAEMTest/tree/main/Releases)
+
+- Download the jar 
+- Open the terminal in Mac or Command prompt in Windows
+- Execute the following command
+```
+java -jar aem-0.0.1-SNAPSHOT.jar 
+```
+
+The server would turn up on port 8080 by default. If port 8080 is unavailable please run the following command:
+
+```
+java -jar -d server.port=<Any Available Port> aem-0.0.1-SNAPSHOT.jar 
+
+example 
+
+java -jar -d server.port=8001 aem-0.0.1-SNAPSHOT.jar 
 
 ```
