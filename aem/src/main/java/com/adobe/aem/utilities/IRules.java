@@ -1,5 +1,10 @@
 package com.adobe.aem.utilities;
 
+import com.adobe.aem.models.Conversions;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
+
 public class IRules implements Rules {
     private static final String[] thousands = {"", "M", "MM", "MMM"};
     private static final String[] hundreds = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
@@ -10,5 +15,14 @@ public class IRules implements Rules {
     public String convertor(int number) {
         return thousands[number / 1000] + hundreds[number % 1000 / 100]
                 + tens[number % 100 / 10] + ones[number % 10];
+    }
+
+    @Override
+    public Future<Conversions> convertor(Conversions conversions) {
+        int number = Integer.parseInt(conversions.getInput());
+        conversions.setOutput( thousands[number / 1000] + hundreds[number % 1000 / 100]
+                + tens[number % 100 / 10] + ones[number % 10]);
+
+        return CompletableFuture.completedFuture(conversions);
     }
 }
